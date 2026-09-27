@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0a0f">
+    <meta name="description" content="NexoraSmp — Minecraft сервер с дружным сообществом, своими механиками и ванильным SMP.">
+    <title>NexoraSmp — Minecraft сервер</title>
+
+```
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Интерактивный курсор и след -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<header class="site-header reveal fade-down">
+    <nav class="navbar" aria-label="Основная навигация">
+
+        <a href="#home" class="logo interactive-element" aria-label="NexoraSmp — на главную">
+            <span class="logo-icon" aria-hidden="true">N</span>
+            <span>NexoraSmp</span>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="active interactive-element">Главная</a>
+            <a href="#about" class="interactive-element">О сервере</a>
+            <a href="#modes" class="interactive-element">Возможности</a>
+            <a href="#rules" class="interactive-element">Правила</a>
+            <a href="#donate" class="interactive-element">Донат</a>
+            <a href="#community" class="interactive-element">Сообщество</a>
+        </div>
+
+        <div class="nav-actions">
+            <button
+                class="login-btn animated-btn interactive-element"
+                type="button"
+                onclick="showToast('Авторизация скоро будет доступна')"
+            >
+                <span>Войти</span>
+            </button>
+
+            <button
+                class="menu-button interactive-element"
+                id="menuButton"
+                type="button"
+                aria-label="Открыть меню"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </nav>
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <div class="badge reveal fade-up delay-1 interactive-element">
+                <span class="status-dot" aria-hidden="true"></span>
+                Больше чем просто Minecraft
+            </div>
+
+            <h1 class="typewriter-title">
+                <span id="typewriterText"></span>
+                <span class="cursor">|</span>
+            </h1>
+
+            <div class="subtitle reveal fade-up delay-3">
+                Твой мир. Наше комьюнити. Безграничные возможности.
+            </div>
+
+            <p class="description reveal fade-up delay-4">
+                NexoraSmp — это ванильный SMP с собственным комьюнити и своими механиками.
+                Просто Minecraft, игроки и общий мир, в котором каждый может создать свою историю.
+            </p>
+
+            <div class="hero-buttons reveal fade-up delay-5">
+
+                <a
+                    href="#play"
+                    class="btn btn-primary pulse-btn animated-btn interactive-element"
+                >
+                    <span>Начать играть</span>
+                    <span class="btn-icon" aria-hidden="true">→</span>
+                </a>
+
+                <a
+                    href="https://t.me/NexoraSmp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary animated-btn interactive-element"
+                >
+                    <span class="discord-icon" aria-hidden="true">✈</span>
+                    <span>Telegram: NexoraSmp</span>
+                </a>
+
+            </div>
+
+            <div class="server-info reveal fade-up delay-6" aria-label="Информация о сервере">
+
+                <div class="server-status interactive-element">
+                    <span class="online-dot" aria-hidden="true"></span>
+                    <span>Онлайн</span>
+                    <strong id="onlineCount">20</strong>
+                    <span>/ 20</span>
+                </div>
+
+                <span class="separator" aria-hidden="true"></span>
+
+                <div class="interactive-element">
+                    <span>Версия</span>
+                    <strong>1.21.11</strong>
+                </div>
+
+                <span class="separator" aria-hidden="true"></span>
+
+                <div class="ip-row interactive-element">
+                    <span>IP:</span>
+                    <strong id="serverIP">nexora.joinserver.fun</strong>
+
+                    <button
+                        class="copy-btn animated-btn interactive-element"
+                        type="button"
+                        onclick="copyIP()"
+                        title="Скопировать IP"
+                        aria-label="Скопировать IP сервера"
+                    >
+                        ⧉
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div
+            class="hero-decoration reveal zoom-in delay-3 interactive-element"
+            aria-hidden="true"
+        >
+            <div class="pixel-orb">
+                <div class="pixel-orb-inner"></div>
+            </div>
+
+            <div class="floating-block block-one"></div>
+            <div class="floating-block block-two"></div>
+            <div class="floating-block block-three"></div>
+        </div>
+
+    </div>
+</section>
+
+<main class="content-wrapper">
+
+    <section
+        class="features reveal fade-up"
+        id="about"
+        aria-label="Особенности сервера"
+    >
+
+        <article class="feature tilt-card interactive-element">
+            <div class="feature-icon" aria-hidden="true">⬡</div>
+            <div>
+                <h3>Дружное сообщество</h3>
+                <p>Игроки, а не просто цифры</p>
+            </div>
+        </article>
+
+        <article class="feature tilt-card interactive-element">
+            <div class="feature-icon" aria-hidden="true">⚔</div>
+            <div>
+                <h3>Свои механики</h3>
+                <p>Дополнительные механики SMP</p>
+            </div>
+        </article>
+
+        <article class="feature tilt-card interactive-element">
+            <div class="feature-icon" aria-hidden="true">♛</div>
+            <div>
+                <h3>Ванильный SMP</h3>
+                <p>Простой и знакомый Minecraft</p>
+            </div>
+        </article>
+
+        <article class="feature tilt-card interactive-element">
+            <div class="feature-icon" aria-hidden="true">★</div>
+            <div>
+                <h3>Развитие сервера</h3>
+                <p>Новые идеи и механики</p>
+            </div>
+        </article>
+
+        <article class="feature tilt-card interactive-element">
+            <div class="feature-icon" aria-hidden="true">◆</div>
+            <div>
+                <h3>Честное комьюнити</h3>
+                <p>Играем вместе и честно</p>
+            </div>
+        </article>
+
+    </section>
+
+    <section class="main-grid">
+
+        <div class="panel reveal fade-up" id="modes">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">NEXORA SMP</span>
+                    <h2>Наш SMP</h2>
+                    <p class="panel-subtitle">
+                        Обычный Minecraft с дополнительными механиками
+                    </p>
+                </div>
+            </div>
+
+            <div class="modes">
+
+                <article class="mode-card tilt-card reveal fade-up delay-1 interactive-element">
+
+                    <div class="mode-image survival-gradient">
+                        <span class="mode-symbol">◆</span>
+                    </div>
+
+                    <div class="mode-content">
+                        <h3>Выживание</h3>
+                        <p>
+                            Обычное ванильное выживание в общем мире.
+                        </p>
+                        <span class="mode-arrow" aria-hidden="true">→</span>
+                    </div>
+
+                </article>
+
+                <article class="mode-card tilt-card reveal fade-up delay-2 interactive-element">
+
+                    <div class="mode-image economy-gradient">
+                        <span class="mode-symbol">◇</span>
+                    </div>
+
+                    <div class="mode-content">
+                        <h3>Экономика</h3>
+                        <p>
+                            Играй, строй, торгуй и развивай свой мир.
+                        </p>
+                        <span class="mode-arrow" aria-hidden="true">→</span>
+                    </div>
+
+                </article>
+
+                <article class="mode-card tilt-card reveal fade-up delay-3 interactive-element">
+
+                    <div class="mode-image clans-gradient">
+                        <span class="mode-symbol">⬢</span>
+                    </div>
+
+                    <div class="mode-content">
+                        <h3>Кланы</h3>
+                        <p>
+                            Играй вместе с друзьями и создавай свою историю.
+                        </p>
+                        <span class="mode-arrow" aria-hidden="true">→</span>
+                    </div>
+
+                </article>
+
+                <article class="mode-card tilt-card reveal fade-up delay-4 interactive-element">
+
+                    <div class="mode-image events-gradient">
+                        <span class="mode-symbol">✦</span>
+                    </div>
+
+                    <div class="mode-content">
+                        <h3>Ивенты</h3>
+                        <p>
+                            Собственные механики и развитие сервера.
+                        </p>
+                        <span class="mode-arrow" aria-hidden="true">→</span>
+                    </div>
+
+                </article>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="extra-grid">
+
+        <article
+            class="info-card tilt-card reveal fade-up delay-1 interactive-element"
+            id="rules"
+        >
+            <div class="info-icon">§</div>
+
+            <div>
+                <span class="eyebrow">COMMUNITY</span>
+                <h2>Правила</h2>
+                <p>
+                    Уважай игроков, не используй запрещённые модификации
+                    и помогай сохранять комфортную атмосферу.
+                </p>
+            </div>
+        </article>
+
+        <article
+            class="info-card tilt-card reveal fade-up delay-2 interactive-element"
+            id="donate"
+        >
+            <div class="info-icon">◆</div>
+
+            <div>
+                <span class="eyebrow">SUPPORT</span>
+                <h2>Донат</h2>
+                <p>
+                    Поддержать развитие NexoraSmp можно через официальные
+                    способы проекта.
+                </p>
+            </div>
+        </article>
+
+        <article
+            class="info-card tilt-card reveal fade-up delay-3 interactive-element"
+            id="community"
+        >
+            <div class="info-icon">◎</div>
+
+            <div>
+                <span class="eyebrow">SOCIAL</span>
+                <h2>Сообщество</h2>
+                <p>
+                    Присоединяйся к Telegram, общайся с игроками
+                    и следи за обновлениями проекта.
+                </p>
+            </div>
+        </article>
+
+    </section>
+
+    <section class="cta reveal zoom-in interactive-element" id="play">
+
+        <div class="cta-glow" aria-hidden="true"></div>
+
+        <div class="cta-content">
+            <span class="eyebrow">READY?</span>
+
+            <h2>
+                Присоединяйся к NexoraSmp прямо сейчас!
+            </h2>
+
+            <p>
+                Игроки уже строят свою историю.
+                Присоединяйся к миру NexoraSmp.
+            </p>
+
+            <button
+                class="btn btn-primary pulse-btn animated-btn interactive-element"
+                type="button"
+                onclick="copyIP()"
+            >
+                <span>Играть на NexoraSmp</span>
+                <span class="btn-icon" aria-hidden="true">→</span>
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-logo interactive-element">
+        <span class="logo-icon small" aria-hidden="true">N</span>
+        <strong>NexoraSmp</strong>
+    </div>
+
+    <p>© 2026 NexoraSmp. Все права защищены.</p>
+    <p>Сервер не связан с Mojang Studios или Microsoft.</p>
+
+</footer>
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>
